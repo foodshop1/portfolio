@@ -36,33 +36,58 @@ section {
   opacity: 0.9;
 }
 
-.header {
-  position: absolute;
-  top: 30px;
-
-  width: auto;
-  max-width: 90%;
-
-  /* center it horizontally */
+.header.final {
+  position: fixed;
+  top: -80px; /* hide it off the top initially */
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1000;
 
   display: flex;
   justify-content: center;
   align-items: center;
-
   gap: 50px;
 
-  padding: 15px 500px; /* vertical padding 15px, horizontal padding 30px */
-
+  padding: 15px 60px;
+  max-width: 90%;
+  width: auto;
   box-sizing: border-box;
-  border: 2px solid white;
-  border-radius: 30px;
 
-  /* animation */
+  background: #333;
+  border: 2px solid white;
+  border-radius: 0 0 30px 30px;
+
   opacity: 0;
-  animation: fadeIn 0.5s ease-in forwards;
-  animation-delay: 2.7s;
+  transition: top 0.3s ease-in-out;
+}
+
+.header.final:hover {
+  top: 0;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  padding: 15px 60px;
+  max-width: 90%;
+  width: auto;
+  box-sizing: border-box;
+
+  background: #333;
+  border: 2px solid white;
+  border-radius: 0 0 30px 30px;
+  opacity: 0;
+  animation: bounceInUp 0.8s ease-out forwards;
+  animation-delay: 2.4s;
 }
 
 /* name block with entrance animation */
@@ -71,6 +96,17 @@ section {
   opacity: 0;
   animation: bounceInDown 0.8s ease-out forwards;
   scale: 1.5;
+}
+
+.scroll-info {
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+  margin-top: -150px;
+  font-family: 'Quicksand', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
 }
 
 /* 
@@ -150,6 +186,39 @@ NOTE!: to invert image, use filter: invert(100%)
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes bounceInUp {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(-50%, 0, 0) scaleY(2.5);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(-50%, 5px, 0) scaleY(0.9);
+  }
+
+  75% {
+    transform: translate3d(-50%, 25px, 0) scaleY(0.95);
+  }
+
+  90% {
+    transform: translate3d(-50%, -10px, 0) scaleY(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
