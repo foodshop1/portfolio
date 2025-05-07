@@ -51,7 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// options toolbar thingy
+// options toolbar thingy final state
 setTimeout(() => {
   document.getElementById('options').classList.toggle('final');
 }, 3800);
+
+// remove scroll down indicator animation when scroll detected
