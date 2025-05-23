@@ -1,3 +1,9 @@
+section {
+  background: #333;
+  margin: 0;
+  min-height: 100vh;
+}
+
 body {
   background: #333;
   margin: 0;
@@ -149,6 +155,10 @@ NOTE!: to invert image, use filter: invert(100%)
   filter: invert(100%);
 }
 
+.fade-out {
+  animation: fadeAway 0.5s ease forwards;
+}
+
 .testing {
   color: white;
   border: 2px solid white;
@@ -267,5 +277,15 @@ NOTE!: to invert image, use filter: invert(100%)
   }
   50% {
     border-color: orange;
+  }
+}
+
+/* lil fade out animation for the scroll indicator */
+@keyframes fadeAway {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }

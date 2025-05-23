@@ -57,3 +57,19 @@ setTimeout(() => {
 }, 3800);
 
 // remove scroll down indicator animation when scroll detected
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollElement = document.getElementById('scroll');
+  let isFading = false; // prevent multiple triggers
+
+  window.addEventListener('scroll', () => {
+    if (!isFading && scrollElement) {
+      isFading = true;
+      scrollElement.classList.add('fade-out');
+
+      // Remove after fade animation ends
+      scrollElement.addEventListener('animationend', () => {
+        scrollElement.remove();
+      });
+    }
+  });
+});
