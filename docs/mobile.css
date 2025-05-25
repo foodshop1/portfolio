@@ -1,0 +1,129 @@
+/* Your existing mobile CSS with fixes */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2000;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.hamburger {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  background: #333;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mobile-menu.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .header {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex !important;
+  }
+
+  .name-wrapper {
+    height: 100vh; /* Keep full height */
+    padding: 40px 20px;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+
+  .name {
+    position: relative;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bounceInDown 0.8s ease-out forwards;
+    scale: 1; /* Reset scale for mobile */
+  }
+
+  .welcome {
+    font-size: 1em;
+    position: static;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    color: #fff;
+    font-family: 'Quicksand', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+  }
+
+  .typewriter h1 {
+    color: #fff;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 2.5rem; /* Slightly smaller for mobile */
+    font-weight: 400;
+    font-style: normal;
+    overflow: hidden;
+    border-right: 0.15em solid orange;
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em; /* Slightly reduced letter spacing */
+    animation: typing 2s steps(22, end) forwards, blink-caret 0.45s step-end 5 forwards;
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: -150px; /* Position it below the name */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards, bounce 1.5s infinite;
+    animation-delay: 2.5s;
+  }
+
+  .scroll-indicator img {
+    width: 60px;
+  }
+
+  .scroll-indicator.fade-out {
+    animation: fadeAway 0.5s ease forwards;
+  }
+}
+
+/* Additional breakpoint for very small screens */
+@media (max-width: 480px) {
+  .welcome {
+    font-size: 0.9em;
+  }
+
+  .typewriter h1 {
+    font-size: 2rem; /* Even smaller for very small screens */
+    letter-spacing: 0.1em;
+  }
+
+  .name-wrapper {
+    padding: 20px 15px;
+  }
+
+  .scroll-indicator {
+    bottom: -100px; /* Closer to content on small screens */
+  }
+}
