@@ -77,7 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
 //MOBILE HANDLING
 function toggleMobileMenu() {
   const menu = document.querySelector('.mobile-menu');
+
   menu.classList.toggle('hidden');
+
+  if (!menu.classList.contains('hidden')) {
+    // Restart animation
+    menu.classList.remove('bounce-in');
+    void menu.offsetWidth; // trigger reflow
+    menu.classList.add('bounce-in');
+  }
 }
 
 function handleMobileView() {
