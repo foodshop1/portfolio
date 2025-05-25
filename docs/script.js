@@ -78,3 +78,20 @@ function toggleMobileMenu() {
   const menu = document.querySelector('.mobile-menu');
   menu.classList.toggle('hidden');
 }
+
+function handleMobileView() {
+  const isMobile = window.innerWidth <= 768;
+
+  const header = document.querySelector('.header');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  if (isMobile && header) {
+    header.remove(); // remove from DOM
+    mobileNav.classList.remove('hidden');
+  }
+}
+
+// Run on page load
+window.addEventListener('DOMContentLoaded', handleMobileView);
+// Optional: run again if window is resized
+window.addEventListener('resize', handleMobileView);
