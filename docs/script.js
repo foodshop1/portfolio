@@ -74,6 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+//MOBILE HANDLING
 function toggleMobileMenu() {
   const menu = document.querySelector('.mobile-menu');
   menu.classList.toggle('hidden');
